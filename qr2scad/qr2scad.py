@@ -44,7 +44,7 @@ dots per module, so with a 0.1mm accuracy you should use at least 0.4 +
 BLOCK_PADDING.
 """
 
-BLOCK_PADDING = 0.01
+BLOCK_PADDING = -0.01
 """Cubes have to be less than 1 unit wide. Otherwise you will get the message
 "Object isn't a valid 2-manifold!" on STL export (see
 <http://en.wikibooks.org/wiki/OpenSCAD_User_Manual/STL_Import_and_Export>)."""
@@ -87,7 +87,7 @@ def qr2scad(stream):
     qr_side = width
 
     # Get the resize factor from the PDP size
-    new_size = qr_side / (list(img.getdata()).index(0) / (PDP_SIDE - 1))
+    new_size = qr_side / (list(img.getdata()).index(0) / PDP_SIDE)
 
     # Set a more reasonable size
     img = img.resize((new_size, new_size))
